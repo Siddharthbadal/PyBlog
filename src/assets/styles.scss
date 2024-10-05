@@ -1,0 +1,23 @@
+$primary: #007791;
+$bgcolor: #242424;
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.card {
+    border: 1px solid #007791;
+    box-shadow: 2px 2px #d6dde0;
+}
+
+.btn{
+    box-shadow: 3px 3px #d6dde0;
+    transform: translate(-3px, -3px);
+    transition: inset;
+    &:disabled{
+        box-shadow: unset;
+        transform:unset;
+    }
+}
+
+h1{
+    color: #007791;
+    font-weight: bolder;
+}
