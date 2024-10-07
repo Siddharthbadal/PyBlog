@@ -1,3 +1,6 @@
+import  {Alert}  from "../../components"
+import  {AppButton}  from "../../components"
+import  {AppInput}  from "../../components"
 import { useSignUp } from "./useSignUp"
 
 const SignUp = () => {
@@ -5,6 +8,8 @@ const SignUp = () => {
         userDataLoading,
         disabled,
         successMessage,
+        errorMessage,
+        emailFormatError,
         onSubmitHandler,
         inputEmailHandler
   } = useSignUp()
@@ -15,6 +20,7 @@ const SignUp = () => {
     <form 
       onSubmit={onSubmitHandler}
       className="card"
+      noValidate
     >
       <div className="card-header mb-2">
           <h1>Sign Up</h1>
@@ -22,30 +28,29 @@ const SignUp = () => {
 
       <div className="card-body">
 
-        <div className="mb-3">
-          {/* <label htmlFor="email" className="form-label fw-bold">Email</label>   */}
-          {successMessage && (
-              <div className="alert alert-warning fw-bold" role="alert">
-                {successMessage}
-              </div>
-              )}
-            <input 
-              type="text" 
-              autoComplete="off" 
-              onChange={inputEmailHandler}  
-              placeholder="Your Email.."
-              className="form-control mb-2"        
-              />
-          </div>
+          <Alert>
+            {successMessage}
+          </Alert>
+
+          <Alert variant="warning">
+            {errorMessage}
+          </Alert>
+
+          <AppInput
+            id='email'
+            label='Email'
+            type='email'
+            onChange={inputEmailHandler}
+            emailError={emailFormatError.email}
+          />
+          
           
           <div className="text-center">
-            <button disabled={disabled || userDataLoading}
-              className="btn btn-primary text-white fw-bolder"
-              >
-                {userDataLoading && (<span className="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-              )}
+            <AppButton disabled={disabled}
+              loading={userDataLoading}
+            >
                 SignUp
-            </button>
+            </AppButton>
           </div>
 
         </div>
