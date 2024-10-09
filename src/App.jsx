@@ -1,13 +1,18 @@
-
-import SignUp   from "./pages/sign-up";
+import { Outlet } from "react-router-dom"
+import NavBar from './components/NavBar'
 
 function App() {
  
   return (
-    <div className="container">
-        <SignUp />     
+    <>
+      <NavBar/>
       
-    </div>
+      <div className="container">
+          <Outlet />
+        
+      
+      </div>
+    </>
   )
 }
 

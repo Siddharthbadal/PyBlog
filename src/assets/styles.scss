@@ -4,7 +4,7 @@ $bgcolor: #242424;
 
 .card {
     border: 1px solid #007791;
-    box-shadow: 2px 2px #d6dde0;
+    box-shadow: 3px 3px #d6dde0;
 }
 
 .btn{
@@ -20,4 +20,13 @@ $bgcolor: #242424;
 h1{
     color: #007791;
     font-weight: bolder;
+}
+
+.navbar{
+    border-bottom: 3px solid #007791;
+    box-shadow: 2px 2px #d6dde0;
+}
+.navbar a:hover{
+    text-shadow: 1px 1px #d6dde0;
+    // transform: translate(-2px, -2px);
 }
